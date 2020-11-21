@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+input {
+  
+}
+input:focus,
+button:focus {
+  outline: unset;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #d8a997;
+}
+
+.pet {
+  width: 1140px;
+  margin: 100px auto;
+  display: flex
+}
+
+.pet__banner {
+  width: 420px;
+  background: #7f7182;
+  padding: 60px 60px 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pet__banner img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.pet__banner__title {
+  display: flex;
+  align-items: center;
+  font-size: 30px ;
+}
+.pet__banner__title i {
+  color: #7f7182;
+  width: 65px;
+  height: 65px;
+  margin-right: 20px;
+  background: #f3b3a7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+.pet__banner__title span {
+  color: #211f22;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.pet__form {
+  flex: 1;
+}
+
+.pet__form__info {
+  padding: 60px;
+  background: #fac7c3;
+  color: #211f22;
+}
+
+.pet__form__info__title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.pet__form__info__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: -45px;
+  margin-right: -45px;
+}
+.pet__form__info__body .form-group {
+  padding: 15px 45px 0;
+}
+.pet__form__info__body .form-group--half {
+  width: 50%;
+}
+.pet__form__info__body .form-group--full {
+  width: 100%;
+}
+
+.pet__form__info__body .form-group--upload {
+  display: flex;
+  align-items: center;
+}
+.pet__form__info__body .form-group--upload input {
+  display: none;
+}
+.pet__form__info__body .form-group--upload button {
+  border: 2px solid #ccc;
+  width: 55px;
+  height: 55px;
+  margin-right: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.pet__form__info__body .form-group--upload .form-group__label {
+  margin-bottom: 0;
+}
+
+.pet__form__info__body .form-group__label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.pet__form__info__body .form-group input {
+  width: 100%;
+  height: 50px;
+  padding: 6px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.pet__form__info__body .form-group__radio {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+  background: #fff;
+}
+.pet__form__info__body .form-group__radio input {
+  display: none;
+}
+.pet__form__info__body .form-group__radio__item input+label {
+  display: block;
+  padding: 8px 20px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+}
+.pet__form__info__body .form-group__radio__item input:checked+label {
+  background: #f3b3a7;
+  border-color:  #e39d9d;
+}
+
+.pet__form__btn {
+  padding: 20px 60px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.pet__form__btn .btn {
+  padding: 15px 50px;
+  border: 2px solid;
+  border-radius: 25px;
+  transition: all .3s;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+}
+.pet__form__btn .btn--back {
+  border-color: #ccc;
+  background: #fff;
+  color: #211f22;
+}
+.pet__form__btn .btn--back:hover {
+  background: #e39d9d;
+  color: #fff;
+}
+
+.pet__form__btn .btn--next {
+  border-color: #7f7182;
+  background: #7f7182;
+  color: #fff;
+}
+.pet__form__btn .btn--next:hover {
+  background: #e39d9d;
+  color: #211f22;
+}

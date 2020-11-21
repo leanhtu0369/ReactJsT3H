@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.memories {
+  background: #f1f1f1;
+  width: 800px;
+  height: 860px;
+  margin: 50px auto;
+  position: relative;
+}
+
+.memories__item {
+  background: #fafafa;
+  width: 280px;
+  padding: 15px;
+  box-shadow: 0 2px 5px #666;
+  position: absolute;
+}
+.memories__item--london {
+  top: 60px;
+  left: 200px;
+  transform: rotate(-1deg);
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  -o-transform: rotate(-1deg);
+}
+.memories__item--berlin {
+  bottom: 140px;
+  right: 200px;
+  transform: rotate(-6deg);
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+}
+.memories__item--los-angeles {
+  top: 285px;
+  left: 120px;
+  transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -o-transform: rotate(-4deg);
+}
+.memories__item--italy {
+  top: 180px;
+  right: 160px;
+  transform: rotate(6deg);
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+}
+
+.memories__item__thumnail {
+  width: 100%;
+  height: 280px;
+  opacity: .6;
+}
+.memories__item__thumnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memories__item__title {
+  padding: 10px 0;
+  text-align: center;
+  
+}
+
+.memories__item:hover {
+  z-index: 1;
+  transform: unset;
+  -webkit-transform: unset;
+  -moz-transform: unset;
+  -ms-transform: unset;
+  -o-transform: unset;
+}
+.memories__item:hover .memories__item__thumnail {
+  opacity: 1;
+}
