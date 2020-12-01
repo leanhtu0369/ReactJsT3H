@@ -28,7 +28,8 @@ button:focus {
 
 .chat {
     width: 960px;
-    margin: 30px auto;
+    max-height: 100vh;
+    margin: 0 auto;
     display: flex;
 }
 
@@ -68,9 +69,15 @@ button:focus {
     color: #fff;
 }
 
+.chat-list {
+    overflow-x: auto;
+    height: calc(100% - 110px);
+}
+
 .chat-list__item {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .chat-list__item:not(:last-child) {
@@ -192,6 +199,8 @@ button:focus {
     padding: 20px 35px 25px;
     border-top: 3px solid #fff;
     border-bottom: 3px solid #fff;
+    height: calc(100% - 145px - 233px);
+    overflow-y: auto;
 }
 
 .chat-message__item:not(:last-child) {
@@ -270,6 +279,15 @@ button:focus {
     padding: 25px 20px;
     border-radius: 10px;
     position: relative;
+    width: fit-content;
+}
+
+.message--friend .chat-message__content {
+    margin-right: auto;
+}
+
+.message--my .chat-message__content {
+    margin-left: auto;
 }
 
 .chat-message__content::before {
