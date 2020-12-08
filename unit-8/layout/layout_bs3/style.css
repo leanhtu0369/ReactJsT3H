@@ -369,7 +369,7 @@ a.button {
 }
 @media (max-width: 767.98px) {
   .header__bottom__intro__item {
-    padding: 30px 35px 15px !important;
+    padding: 30px 35px 15px;
   }
 
   .main .features {
