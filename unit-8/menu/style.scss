@@ -6,7 +6,7 @@ $color_active : #d8823b;
 $size_border : 8px;
 $size_search : 70px;
 
-@mixin timeTransition {
+@mixin time-transition {
     transition: all .5s;
 }
 
@@ -50,7 +50,7 @@ body {
         li {
             color: $color_text;
             border-bottom: 1px solid $color_outline;
-            @include timeTransition;
+            @include time-transition;
             position: relative;
 
             a {
@@ -89,7 +89,7 @@ body {
                 opacity: 0;
                 transform: scale(0.6);
                 transform-origin: 0% 57px;
-                @include timeTransition;
+                @include time-transition;
 
                 li {
                     a {
@@ -167,7 +167,7 @@ body {
                 right: 0;
                 border-color: transparent $color_active transparent transparent;
                 opacity: 0;
-                @include timeTransition;
+                @include time-transition;
             }
 
             &.dropdown.active::after {
