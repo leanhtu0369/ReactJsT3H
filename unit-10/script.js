@@ -1,30 +1,32 @@
 // lesson 1:
 // In một bảng nhân của một số bất kỳ với các số từ 1 tới 10 và hiển thị kết quả
 
-function getMultiplyTable(number) {
-  let result =''
+function getMultiplyTable (number) {
   if (typeof(number) !== 'number') {
-    result = 'Dữ liệu nhập không hợp lệ: Phải là một số'
-  } else {
-    result = 'In bang nhan:\n' 
-    for (let i = 1; i <= 10; i++) {
-      result += '   ' + number + ' x ' + i + ' = ' + number * i + '\n'
-    }
+    return 'Dữ liệu nhập không hợp lệ: Phải là một số'
   }
+
+  let result = 'In bang nhan:\n' 
+  for (let i = 1; i <= 10; i++) {
+    result += '   ' + number + ' x ' + i + ' = ' + number * i + '\n'
+  }
+
   return result
 }
+
+const validate = number => Number.isInteger(number) && number > 0 && number < 31
 
 // lesson 2:
 // Hàm nhận tham số là n (số nguyên dương), 1 <= n <= 30 In các số chẵn từ 1 đến n Vd n = 6: in ra: 2 4 6
 
-function getEvenNumber(number) {
+function getEvenNumber (number) {
+  if (!validate(number)) {
+    return 'Dữ liệu nhập không hợp lệ: Phải là một số nguyên dương 1 <= n <= 30'
+  }
+
   let result = ''
-  if (!(Number.isInteger(number)) || number < 1 || number > 30) {
-    result = 'Dữ liệu nhập không hợp lệ: Phải là một số nguyên dương 1 <= n <= 30'
-  } else {
-    for (let i = 2; i <= number; i +=2) {
-      result += i + ' '
-    }
+  for (let i = 2; i <= number; i += 2) {
+    result += i + ' '
   }
   return result
 }
@@ -33,41 +35,34 @@ function getEvenNumber(number) {
 // Hàm nhận tham số là n (số nguyên dương), 1 <= n <= 30 Tính tổng từ 1 đến n
 // vd nhập vào 6: Tổng = 1 + 2 + 3 + 4 + 5 + 6 = 21
 
-function getSumNumber(number) {
-  let result = ''
-  if (!(Number.isInteger(number)) || number < 1 || number > 30) {
-    result = 'Dữ liệu nhập không hợp lệ: Phải là một số nguyên dương 1 <= n <= 30'
-  } else {
-    let sum = 0
-
-    for (let i = 1; i <= number; i++) {
-      sum += i
-      if (i !== number) {
-        result += i + ' + '
-      } else {
-        result += i
-      }
-    }
-    result = 'Tổng = ' + result + ' = ' + sum
+function getSumNumber (number) {
+  if (!validate(number)) {
+    return 'Dữ liệu nhập không hợp lệ: Phải là một số nguyên dương 1 <= n <= 30'
   }
-  return result
+
+  let sum = 0
+  for (let i = 1; i <= number; i++) {
+    sum += i
+  }
+  return sum
 }
+
+
 
 // lesson 4:
 // Hàm nhận tham số là n (số nguyên dương), 1 <= n <= 30 In ra n! (giai thừa của n)
 
-function getFactorial(number) {
-  let result = ''
-  if (!(Number.isInteger(number)) || number < 1 || number > 30) {
-    result = 'Dữ liệu nhập không hợp lệ: Phải là một số nguyên dương 1 <= n <= 30'
-  } else {
-    factorial = 1
-    for (let i = 1; i <= number; i++) {
-      factorial *= i
-    }
-    result = number + '! = ' + factorial
+function getFactorial (number) {
+  if (!validate(number)) {
+    return 'Dữ liệu nhập không hợp lệ: Phải là một số nguyên dương 1 <= n <= 30'
   }
-  return result
+
+  let factorial = 1
+  for (let i = 1; i <= number; i++) {
+    factorial *= i
+  }
+  
+  return factorial
 }
 
 // lesson 5:
@@ -76,7 +71,7 @@ function getFactorial(number) {
 
 const arrNumber = [1, 2, 3, 6, 2, 9, 0]
 
-function countEvenNumber() {
+function countEvenNumber (arrNumber) {
   let count = 0
   for (let index = 0; index < arrNumber.length; index++) {
     if (!(arrNumber[index] % 2)) {
@@ -95,8 +90,8 @@ function countEvenNumber() {
 
 const arrAlphabet = ['A', 'C', 'A', 'A', 'B', 'D', 'B']
 
-function getAlphabetAlphabet() {
-  let result = []
+function getAlphabetAlphabet (arrAlphabet) {
+  const result = []
   for (let index = 0; index < arrAlphabet.length; index++) {
     if (result.indexOf(arrAlphabet[index]) < 0) {
       result.push(arrAlphabet[index])
@@ -140,7 +135,7 @@ const studentScores = [
 
 const studentsList = []
 
-function getStudents() {
+function getStudents(studentNames, studentsList) {
   studentNames.forEach(studentName => {
     let student = {
       id: studentName.id,
@@ -150,9 +145,9 @@ function getStudents() {
       if (studentScore.id === studentName.id) {
         student.score = studentScore.score
       }
-    });
+    })
     studentsList.push(student)
-  });
+  })
   return studentsList
 }
 
@@ -166,7 +161,7 @@ function getStudents() {
 // }
 
 const students = [
-  { id: 1, name: 'Nguyễn Thị Tèo', score: 9.2 },
+  { id: 1, name: 'Nguyễn Thị Tèo', score: 9.6 },
   { id: 2, name: 'Phạm Văn Bưởi', score: 2.3 },
   { id: 3, name: 'Hoàng Văn Nam', score: 3.7 },
   { id: 4, name: 'Vũ Ngọc Duy', score: 6.9 },
@@ -176,13 +171,13 @@ const students = [
 ]
 
 function getScoreStudents() {
-  let max = 0, min
+  let max, min
   students.forEach(student => {
     max = max > student.score ? max : student.score
     min = min < student.score ? min : student.score
-  });
+  })
   return {
-    theBest: students.find(student => student.score === min),
-    theBad: students.find(student => student.score === max)
+    theBest: students.find(student => student.score === max),
+    theBad: students.find(student => student.score === min)
   }
 }
