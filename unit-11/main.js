@@ -1,38 +1,36 @@
 const validateArray = arr => Array.isArray(arr)
 const validateObject = object => !(Array.isArray(object)) && typeof(object) === 'object'
 
-
 // lesson 1
 // Viết 1 hàm trả về 1 array, nhận vào 2 tham số, tham số thứ 1 là ký tự cần lặp, tham số thứ 2 là số lần lặp
 
-const validateLesson1 = numberRepeat => Number.isInteger(numberRepeat) && numberRepeat > 0
+const validateNumberRepeat = times => Number.isInteger(times) && times > 0
 
-const createArrRepeat1 = (charater, numberRepeat) => {
-  if (!validateLesson1) {
+const repeatWord1 = (word, times) => {
+  if (!validateNumberRepeat) {
     return 'Dữ liệu nhập không hợp lệ.'
   }
 
   const arrRepeat1 = []
-  for (let i = 0; i < numberRepeat; i++) {
-    arrRepeat1.push(charater)
+  for (let i = 0; i < times; i++) {
+    arrRepeat1.push(word)
   }
 
   return arrRepeat1
 }
 
-const createArrRepeat2 = (charater, numberRepeat) => {
-  if (!validateLesson1) {
+const repeatWord2 = (word, times) => {
+  if (!validateNumberRepeat) {
     return 'Dữ liệu nhập không hợp lệ.'
   }
 
   const arrRepeat2 = []
-  for (let i = 0; i < numberRepeat; i++) {
-    arrRepeat2.unshift(charater)
+  for (let i = 0; i < times; i++) {
+    arrRepeat2.unshift(word)
   }
 
   return arrRepeat2
 }
-
 
 // lesson 2
 // Viết 1 hàm để đảo ngược 1 mảng, không được dùng hàm array.reverse()
@@ -52,7 +50,6 @@ const reverseArr = arr => {
   return arrReverse
 }
 
-
 // lesson 3
 // Xóa đi các giá trị được xem là sai
 
@@ -63,15 +60,12 @@ const formatArr = arr => {
     return 'Dữ liệu nhập không hợp lệ. Dữ liệu phải là một array'
   }
 
-  for (let index = 0; index < arr.length; index++) {
-    if (arr[index] === 0 || arr[index] === false || arr[index] === undefined || arr[index] === '' || arr[index] === null) {
-      arr.splice(index, 1)
-    }
-  }
+  const result = arr.filter(function(value) {
+    return value
+  })
 
-  return arr
+  return result
 }
-
 
 // lesson 4
 // Tạo ra 1 array gồm các object có key và value tương ứng cặp array ban đầu
@@ -92,7 +86,6 @@ const convertArrayToObject = arr => {
   return objectAfterConvert
 }
 
-
 // lesson 5
 // Sắp xếp mảng tăng dần
 
@@ -108,7 +101,6 @@ const sortArr = arr => {
   return arr
 }
 
-
 // lesson 6
 // Kiểm tra input đầu vào có phải là object hay không?
 
@@ -123,30 +115,26 @@ const checkObject = object => {
   return object
 }
 
-
 // lesson 7
 // Viết 1 hàm trả về các key+value (của 1 object) khác các key truyền vào Vd:
 
 const objLesson7 = { a: 1, b: 2, c: 3, d: 4 }
 
-// const deletePropertyObject = (object, ...rest) => {
-//   if (!validateObject(object)) {
-//     return 'Dữ liệu nhập không hợp lệ. Dữ liệu phải là một object'
-//   }
+const deletePropertyObject = (object, ...rest) => {
+  if (!validateObject(object)) {
+    return 'Dữ liệu nhập không hợp lệ. Dữ liệu phải là một object'
+  }
 
-//   for (const key in object) {
-//     rest.forEach(item => {
-//       console.log(key);
-//       console.log(item);
-//       if (key === item) {
-//         delete object.key;
-//       }
-//     });
-//   }
+  for (const key in object) {
+    rest.forEach(item => {
+      if (key === item) {
+        delete object[key];
+      }
+    });
+  }
 
-//   return object
-// }
-
+  return object
+}
 
 // lesson 8
 // Viết hàm nhập vào 1 array có nhiều hơn 5 phần tử Xóa phần tử số 2, 3 trong array Return mảng sau khi đã xóa
@@ -160,7 +148,6 @@ const creatrArr = arr => {
 
   return arr
 }
-
 
 // lesson 9
 // Viết hàm nhập vào 1 array có cấu trúc như ví dụ sau:
@@ -189,7 +176,6 @@ const checkStudentPass = arr => {
   return studentsAfter
 }
 
-
 // lesson 10
 // Cho array có cấu trúc như input bài 9
 // Hãy tìm các students có điểm là số mà tổng số nút của phần trước dấu thập phân và phần sau dấu thập phân cộng lại lớn hơn 5
@@ -198,9 +184,9 @@ const checkScore = arr => {
   const studentScore = []
 
   arr.forEach(student => {
-    let decimalBefor = (student.score * 10) % 10
-    let decimalAfter = student.score - (decimalBefor / 10)
-    let total = decimalBefor + decimalAfter
+    const decimalBefor = (student.score * 10) % 10
+    const decimalAfter = student.score - (decimalBefor / 10)
+    const total = decimalBefor + decimalAfter
 
     if (total > 5) {
       studentScore.push(student)
