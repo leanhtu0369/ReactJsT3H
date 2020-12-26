@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+#shallowMenu>ul li.dropdown i,
+#shallowMenu>ul li a {
+    transition: all 0.5s;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+#shallowMenu {
+    margin: 20px;
+}
+
+#shallowMenu ul {
+    list-style: none;
+}
+
+#shallowMenu>ul {
+    color: #fff;
+    width: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#shallowMenu>ul li {
+    position: relative;
+}
+
+#shallowMenu>ul li a {
+    display: block;
+    padding: 20px;
+    color: inherit;
+    text-decoration: unset;
+}
+
+#shallowMenu>ul li.dropdown i {
+    position: absolute;
+    cursor: pointer;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shallowMenu>ul li.dropdown i:hover {
+    color: #16a4f9;
+}
+
+#shallowMenu>ul li.dropdown ul {
+    height: 0;
+}
+
+#shallowMenu>ul li.dropdown ul li a {
+    background-color: #16a4f9;
+    border-left: 3px solid transparent;
+}
+
+#shallowMenu>ul li.dropdown ul li a:hover {
+    background-color: #0c93e3;
+    border-left-color: #146ca1;
+}
+
+#shallowMenu>ul li.dropdown.show i {
+    transform: rotate(90deg);
+}
+
+#shallowMenu>ul li.dropdown.show ul {
+    height: auto;
+}
+
+#shallowMenu>ul>li>a {
+    background-color: #2a394f;
+    border-bottom: 3px solid #2a3649;
+}
+
+#shallowMenu>ul>li>a::before {
+    margin-right: 10px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+}
+
+#shallowMenu>ul>li>a:hover {
+    background-color: #222e41;
+    border-bottom-color: #355789;
+}
+
+#shallowMenu>ul>li.dashboard>a::before {
+    content: "";
+}
+
+#shallowMenu>ul>li.sales>a::before {
+    content: "";
+}
+
+#shallowMenu>ul>li.messages>a::before {
+    content: "";
+}
+
+#shallowMenu>ul>li.users>a::before {
+    content: "";
+}
+
+#shallowMenu>ul>li.settings>a::before {
+    content: "";
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+#timeline {
+    background-color: #4c698d;
+    position: relative;
+    padding: 50px 80px;
+}
+
+#timeline::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 6px;
+    transform: translateX(-50%);
+    background-color: #fff;
+}
+
+#timeline .item {
+    display: flex;
+    width: fit-content;
+}
+
+#timeline .item__hook {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #e2656d;
+    margin-top: auto;
+    z-index: 1;
+}
+
+#timeline .item__content {
+    flex: 1;
+    background-color: #e2656d;
+    padding: 20px 15px;
+    color: #fff;
+    position: relative;
+}
+
+#timeline .item__content::before {
+    content: "";
+    position: absolute;
+    bottom: calc((30px - 15px) / 2);
+    border: solid;
+    border-top-width: 7.5px;
+    border-bottom-width: 7.5px;
+}
+
+#timeline .item__content h3 {
+    font-size: 20px;
+}
+
+#timeline .item__content p {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+#timeline .item:not(:first-child) {
+    margin-top: 40px;
+}
+
+#timeline .item:nth-of-type(odd) {
+    margin-left: calc(50% - 15px);
+    margin-right: auto;
+}
+
+#timeline .item:nth-of-type(odd) .item__content {
+    margin-left: 30px;
+}
+
+#timeline .item:nth-of-type(odd) .item__content::before {
+    right: 100%;
+    border-right-width: 15px;
+    border-color: transparent #e2656d transparent transparent;
+}
+
+#timeline .item:nth-of-type(even) {
+    flex-direction: row-reverse;
+    margin-right: calc(50% - 15px);
+    margin-left: auto;
+}
+
+#timeline .item:nth-of-type(even) .item__content {
+    margin-right: 30px;
+}
+
+#timeline .item:nth-of-type(even) .item__content::before {
+    left: 100%;
+    border-left-width: 15px;
+    border-color: transparent transparent transparent #e2656d;
+}
+
+/*# sourceMappingURL=style.css.map */

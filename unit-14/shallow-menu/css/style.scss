@@ -1,0 +1,132 @@
+$color-item: #2a394f;
+$color-item-boder: #2a3649;
+$color-item-active: #222e41;
+$color-item-active-boder: #355789;
+$color-item-child: #16a4f9;
+$color-item-child-active: #0c93e3;
+$color-item-child-active-boder: #146ca1;
+
+%time-transition {
+    transition: all .5s;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#shallowMenu {
+    margin: 20px;
+
+    ul {
+        list-style: none;
+    }
+
+    >ul {
+        color: #fff;
+        width: 250px;
+        border-radius: 5px;
+        overflow: hidden;
+
+        li {
+            position: relative;
+
+            a {
+                display: block;
+                padding: 20px;
+                color: inherit;
+                text-decoration: unset;
+                @extend %time-transition;
+            }
+
+            &.dropdown {
+                i {
+                    position: absolute;
+                    cursor: pointer;
+                    font-size: 20px;
+                    width: 20px;
+                    height: 20px;
+                    top: 20px;
+                    right: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    @extend %time-transition;
+
+                    &:hover {
+                        color: $color-item-child;
+                    }
+                }
+
+                ul {
+                    height: 0;
+
+                    li a {
+                        background-color: $color-item-child;
+                        border-left: 3px solid transparent;
+
+                        &:hover {
+                            background-color: $color-item-child-active;
+                            border-left-color: $color-item-child-active-boder;
+                        }
+                    }
+                }
+
+                &.show {
+                    i {
+                        transform: rotate(90deg);
+                    }
+
+                    ul {
+                        height: auto;
+                    }
+                }
+            }
+        }
+
+        >li {
+            >a {
+                background-color: $color-item;
+                border-bottom: 3px solid $color-item-boder;
+
+                &::before {
+                    margin-right: 10px;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 600;
+                }
+
+                &:hover {
+                    background-color: $color-item-active;
+                    border-bottom-color: $color-item-active-boder;
+                }
+            }
+
+            &.dashboard>a::before {
+                content: '\f3fd';
+            }
+
+            &.sales>a::before {
+                content: '\f0d1';
+            }
+
+            &.messages>a::before {
+                content: '\f0e0';
+            }
+
+            &.users>a::before {
+                content: '\f500';
+            }
+
+            &.settings>a::before {
+                content: '\f085';
+            }
+        }
+    }
+}
