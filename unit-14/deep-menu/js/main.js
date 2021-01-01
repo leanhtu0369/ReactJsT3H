@@ -28,7 +28,7 @@ const deepMenu = [
     title: 'Blog',
     subTitle: 'what they say',
     link: '/blog',
-    icon: 'fa fa-comments-o',
+    icon: 'fa fa-comments',
     children: [
       {
         title: 'Mission',
@@ -38,7 +38,7 @@ const deepMenu = [
       {
         title: 'Our Team',
         link: '/blog/our-team',
-        icon: 'fa fa-group',
+        icon: 'fa fa-users',
         children: [
           {
             title: 'Leyla Sparks',
@@ -75,38 +75,58 @@ const deepMenu = [
     title: 'Portfolio',
     subTitle: 'sweet home',
     link: '/portfolio',
-    icon: 'fa fa-picture-o',
+    icon: 'far fa-image',
   },
   {
     title: 'Contacts',
     subTitle: 'drop a line',
     link: '/contacts',
-    icon: 'fa fa-envelope-o',
+    icon: 'fa fa-envelope',
   },
 ]
 
-const rederMenu = arr => {
-  let element = `<ul>`
+const renderDeepMenu = (parent,arr) => {
+
+  const ul = document.createElement('ul')
+
   arr.forEach(item => {
-  
-    element += `<li><a href="${item.link}">${item.title}<i class=""${item.icon}"></i></a>`
-  
-    if (item.children) {
-      let elementChild = '<ul>'
-      item.children.forEach(itemChild => {
-        elementChild += `<li><a href="${itemChild.link}">${itemChild.title}</a></li>`
-        let result
-        if (itemChild.children) {
-          result = rederMenu(itemChild.children);
-        }
-        elementChild += result
-      });
-      elementChild += `</li></ul>`
-      element += elementChild
+    const li = document.createElement('li')
+
+    const a = document.createElement('a')
+    a.setAttribute('href', item.link)
+
+    const i = document.createElement('i')
+    i.setAttribute('class', item.icon)
+
+    const span = document.createElement('span')
+    span.innerText = item.title
+
+    if (item.subTitle) {
+      const small = document.createElement('small')
+      small.innerText = item.subTitle
+      span.appendChild(small)
     }
-  });
-  element += `</ul>`
-  return element
+
+    li.appendChild(a)
+    a.appendChild(i)
+    a.appendChild(span)
+
+    item.isActive ? li.setAttribute('class', 'active') : ''
+    
+    if (Array.isArray(item.children)) {
+      li.setAttribute('class', 'dropdown')
+      renderDeepMenu(li,item.children)
+    }
+
+    ul.appendChild(li)
+  })
+
+  parent.appendChild(ul)
 }
 
-document.getElementById('deepMenu').innerHTML = rederMenu(deepMenu)
+const render = () => {
+  const menu = document.getElementById('deepMenu')
+  renderDeepMenu(menu, deepMenu)
+}
+
+render()

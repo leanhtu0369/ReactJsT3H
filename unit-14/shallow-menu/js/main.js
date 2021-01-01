@@ -1,9 +1,7 @@
-const shallowMenu = [
-  {
+const shallowMenu = [{
     title: 'Dashboard',
     link: '/dashboard',
-    children: [
-      {
+    children: [{
         title: 'Tool',
         link: '/dashboard/tool'
       },
@@ -24,8 +22,7 @@ const shallowMenu = [
   {
     title: 'Sales',
     link: '/sales',
-    children: [
-      {
+    children: [{
         title: 'New Sales',
         link: '/sales/new-sales'
       },
@@ -46,8 +43,7 @@ const shallowMenu = [
   {
     title: 'Messages',
     link: '/messages',
-    children: [
-      {
+    children: [{
         title: 'Inbox',
         link: '/messages/inbox'
       },
@@ -68,8 +64,7 @@ const shallowMenu = [
   {
     title: 'Users',
     link: '/users',
-    children: [
-      {
+    children: [{
         title: 'New User',
         link: '/users/new-user'
       },
@@ -111,32 +106,59 @@ const shallowMenu = [
   },
 ]
 
-let element = `<ul>`
-shallowMenu.forEach(item => {
-  const checkDropdown = p => p > 0 ? 'dropdown' : ''
+const render = arr => {
+  const menu = document.getElementById('shallowMenu')
 
-  element += `<li class="${item.title.toLowerCase()} ${checkDropdown(item.children.length)}"><a href="${item.link}">${item.title}</a>`
+  const ulParent = document.createElement('ul')
 
-  if (item.children.length > 0) {
-    let elementChild = '<i class="fas fa-angle-right"></i><ul>'
-    item.children.forEach(itemChild => {
-      elementChild += `<li><a href="${itemChild.link}">${itemChild.title}</a></li>`
-  
-    });
-    elementChild += `</li></ul>`
-    element += elementChild
-  }
-});
-element += `</ul>`
-document.getElementById('shallowMenu').innerHTML = element
+  arr.forEach(item => {
+    const liParent = document.createElement('li')
+    liParent.setAttribute('class', `${ item.title.toLowerCase() } dropdown`)
+
+    const aParent = document.createElement('a')
+    aParent.setAttribute('href', item.link)
+    aParent.innerText = item.title
+
+    const iParent = document.createElement('i')
+    iParent.setAttribute('class', 'fas fa-angle-right')
+    iParent.addEventListener('click', () => {
+      toogleMenu(iParent)
+    })
+
+    liParent.appendChild(aParent)
+    liParent.appendChild(iParent)
+
+    if (Array.isArray(item.children)) {
+      const ulChild = document.createElement('ul')
+
+      item.children.forEach(child => {
+        const liChild = document.createElement('li')
+
+        const aChild = document.createElement('a')
+        aChild.setAttribute('href', child.link)
+        aChild.innerText = child.title
+
+        liChild.appendChild(aChild)
+        ulChild.appendChild(liChild)
+      })
+
+      liParent.appendChild(ulChild)
+    }
+
+    ulParent.appendChild(liParent)
+  })
+
+  menu.appendChild(ulParent)
+}
+
+render(shallowMenu)
 
 window.onload = () => {
   const listItemDropdown = document.querySelectorAll('#shallowMenu .dropdown > i')
 
   for (let index = 0; index < listItemDropdown.length; index++) {
-    listItemDropdown[index].addEventListener('click', function() {
+    listItemDropdown[index].addEventListener('click', function () {
       this.parentElement.classList.toggle('show')
     })
   }
 }
-
