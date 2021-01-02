@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+body {
+  background-color: #eee;
+  font-family: "Roboto", sans-serif;
+}
+
+.menu {
+  width: 270px;
+  margin-left: 50px;
+  margin-right: auto;
+}
+.menu ul {
+  background-color: #fff;
+}
+.menu ul li {
+  color: #777;
+  border-bottom: 1px solid #eee;
+  transition: all 0.5s;
+  position: relative;
+}
+.menu ul li a {
+  padding: 15px 20px;
+  display: flex;
+  color: inherit;
+}
+.menu ul li a i {
+  font-size: 28px;
+  margin-right: 10px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+}
+.menu ul li a span {
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.menu ul li a span small {
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+  text-transform: lowercase;
+  font-weight: normal;
+}
+.menu ul li ul {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 240px;
+  border-left: 8px solid #d8823b;
+  opacity: 0;
+  transform: scale(0.6);
+  transform-origin: 0% calc(74px / 2);
+  transition: all 0.5s;
+}
+.menu ul li ul li a {
+  padding: 12px 15px;
+}
+.menu ul li ul li a i {
+  font-size: 20px;
+  width: 26px;
+}
+.menu ul li ul li a span {
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.menu ul li ul li ul {
+  min-width: 200px;
+  transform-origin: 0% calc(45px / 2);
+}
+.menu ul li.active {
+  color: #d8823b;
+  box-shadow: 0 0 2px 3px #eee;
+}
+.menu ul li.active::before, .menu ul li.active::after {
+  content: "";
+  position: absolute;
+  border: 8px solid;
+  top: calc((100% - 16px) / 2);
+}
+.menu ul li.active::before {
+  left: 0;
+  border-color: transparent transparent transparent #d8823b;
+}
+.menu ul li.active::after {
+  right: 0;
+  border-color: transparent #d8823b transparent transparent;
+}
+.menu ul li.active a::before, .menu ul li.active a::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  top: 0;
+  bottom: 0;
+  background-color: #d8823b;
+}
+.menu ul li.active a::before {
+  left: -8px;
+}
+.menu ul li.active a::after {
+  right: -8px;
+}
+.menu ul li.dropdown::after {
+  content: "";
+  position: absolute;
+  border: 8px solid;
+  top: calc((100% - 16px) / 2);
+  right: 0;
+  border-color: transparent #d8823b transparent transparent;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.menu ul li.dropdown.active::after {
+  opacity: unset;
+}
+.menu ul li:hover {
+  color: #d8823b;
+}
+.menu ul li:hover > ul {
+  opacity: 1;
+  transform: scale(1);
+}
+.menu ul li:hover.dropdown::after {
+  opacity: 1;
+}
+.menu form {
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+}
+.menu form input {
+  flex: 1;
+  height: 70px;
+  border: 1px solid #eee;
+  padding: 20px;
+  color: #777;
+  font-size: 20px;
+}
+.menu form input::placeholder {
+  color: inherit;
+}
+.menu form button {
+  width: 70px;
+  background-color: #d8823b;
+  border: none;
+  font-size: 32px;
+}
+.menu form button i {
+  color: #fff;
+}
+
+/*# sourceMappingURL=style.css.map */
